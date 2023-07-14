@@ -6,6 +6,9 @@ import com.tkgroupbd.pusti.api.data.payload.response.MessageResponse;
 import com.tkgroupbd.pusti.api.data.repository.DepotRepository;
 import com.tkgroupbd.pusti.api.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -70,6 +73,28 @@ public class DepotServiceImpl implements DepotService {
     public List<Depot> getAllDepot() {
         return depotRepository.findAll();
     }
+
+    @Override
+    public List<Depot> findDepotWithSorting(String field) {
+            return  depotRepository.findAll(Sort.by(Sort.Direction.ASC,field));
+    }
+
+
+    @Override
+    public Page<Depot> findDepotByPagination(int offset, int pageSize){
+        Page<Depot> depots = depotRepository.findAll(PageRequest.of(offset, pageSize));
+        return depots;
+
+    }
+
+    @Override
+    public Page<Depot> findDepotByPaginationAndSortin(int offset, int pageSize, String field){
+        Page<Depot> depots = depotRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
+        return depots;
+
+    }
+
+
 
 
 }
