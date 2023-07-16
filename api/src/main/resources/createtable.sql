@@ -1,0 +1,13 @@
+-- CREATE TABLE depot (
+--                              id  number  GENERATED NOT NULL,
+--                              name  VARCHAR2(50)  NOT NULL,
+--                              email VARCHAR2(50)  NOT NULL,
+--                              phone VARCHAR2(50)  NOT NULL,
+--                              department VARCHAR2(50)  NOT NULL
+--
+--                    );
+--
+-- ALTER TABLE depot ADD (
+--   CONSTRAINT dept_pk PRIMARY KEY (id));
+--
+-- CREATE SEQUENCE dept_seq START WITH 1;

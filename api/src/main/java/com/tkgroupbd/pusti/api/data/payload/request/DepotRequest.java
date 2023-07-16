@@ -8,32 +8,21 @@ import lombok.Data;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
 @Data
 public class DepotRequest {
 
-
     @NotBlank
-    @NotBlank
-    private String name;
-
     @NotNull
-    @NotBlank
-    private String phoneNumber;
-
+    private String name;
     @Email
     private String email;
-
-    @NotNull
     @NotBlank
-    private double salary;
-
     @NotNull
+    private String phone;
     @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
-   private Department department;
-
-
-
-
+    private Department department;
 
 }
